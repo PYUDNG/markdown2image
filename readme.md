@@ -5,6 +5,7 @@ Python utility to convert markdown and html to image using [markdown](https://gi
 ## Installing
 1. Clone the repo or download zip, then copy markdown2image.py to your project folder
 2. `pip install -r requirements.txt`
+3. `playwright install chromium`
 
 ## Usage
 
