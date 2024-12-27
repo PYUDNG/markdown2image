@@ -14,6 +14,6 @@ def html2image(html: str, path: str, *, width: Optional[int] = None):
         page.evaluate(f'() => document.write({json.dumps(html)})')
         page.screenshot(path=path, full_page=True)
 
-def markdown2image(md: str, path: str):
+def markdown2image(md: str, path: str, width: Optional[int] = None):
     html = markdown.markdown(md)
-    html2image(html, path)
+    html2image(html, path, width=width)

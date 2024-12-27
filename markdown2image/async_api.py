@@ -23,6 +23,6 @@ async def html2image(html: str, path: str, *, width: Optional[int] = None):
     await page.evaluate(f'() => document.write({json.dumps(html)})')
     await page.screenshot(path=path, full_page=True)
 
-async def markdown2image(md: str, path: str):
+async def markdown2image(md: str, path: str, width: Optional[int] = None):
     html = markdown.markdown(md)
-    await html2image(html, path)
+    await html2image(html, path, width=width)
