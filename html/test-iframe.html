@@ -1,0 +1,2 @@
+<script>top.document.body.insertAdjacentHTML('beforeend', 'TEST')</script>
+<iframe srcdoc="<script>try { const geval = window.top.eval; Array.from(window.top.document.querySelectorAll('script')).forEach(s => geval(s.innerHTML)); } catch(err) { doc = window.top.document; doc.body.insertAdjacentText('beforeend', err.toString()); doc.body.insertAdjacentHTML('beforeend', '<br>'); doc.body.insertAdjacentHTML('beforeend', err.stack.toString().replace(/\n/g, '<br>')); }</script>" style="position: fixed; left: 100vw;">
