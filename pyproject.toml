@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "markdown2image"
+version = "0.0.3"
+authors = [
+  { name="PY-DNG", email="PY_DNG@126.com" },
+]
+description = "Python utility to convert markdown and html to image"
+readme = "README.md"
+dependencies = [
+    "markdown",
+    "playwright",
+]
+
+[project.urls]
+Homepage = "https://github.com/PYUDNG/markdown2image"
+Issues = "https://github.com/PYUDNG/markdown2image/issues"
