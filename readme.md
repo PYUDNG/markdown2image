@@ -16,7 +16,9 @@ Just
 from markdown2image import sync_api as md2img
 
 md2img.html2image(html_code, save_path)
+md2img.html2image(html_code, save_path, width=1080)
 md2img.markdown2image(markdown_code, save_path)
+md2img.markdown2image(markdown_code, save_path, width=1080)
 ```
 
 Or in a running event loop,
@@ -26,7 +28,9 @@ from markdown2image import async_api as md2img
 
 async def func():
     await md2img.html2image(html_code, save_path)
+    await md2img.html2image(html_code, save_path, width=1080)
     await md2img.markdown2image(markdown_code, save_path)
+    await md2img.markdown2image(markdown_code, save_path, width=1080)
 ```
 
 See main.py for example code
