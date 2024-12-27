@@ -1,7 +1,6 @@
 from typing import Optional
 from playwright.async_api import async_playwright, Playwright, Browser, BrowserContext
 import markdown
-import json
 
 # Init browser and context
 _playwright: Playwright
@@ -20,7 +19,7 @@ async def html2image(html: str, path: str, *, width: Optional[int] = None):
     
     page = await _context.new_page()
     if width != None: await page.set_viewport_size({"width": width, "height": 1})
-    await page.evaluate(f'() => document.write({json.dumps(html)})')
+    page.set_content(html=html, wait_until='load')
     await page.screenshot(path=path, full_page=True)
 
 async def markdown2image(md: str, path: str, width: Optional[int] = None):
