@@ -10,11 +10,11 @@ _page: Page
 initialized: bool = False
 
 async def _init():
-    global _playwright, _browser, _context
+    global _playwright, _browser, _context, _page
     _playwright = await async_playwright().start()
     _browser = await _playwright.chromium.launch()
     _context = await _browser.new_context(viewport={'width': 800, 'height': 1})
-    _page = _context.new_page()
+    _page = await _context.new_page()
 
 async def html2image(html: str, path: str, *, width: Optional[int] = None):
     if not initialized: await _init()
