@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "markdown2image"
-version = "0.0.8.1"
+version = "0.0.8.6"
 authors = [
   { name="PY-DNG", email="PY_DNG@126.com" },
 ]
