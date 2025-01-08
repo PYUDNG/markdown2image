@@ -6,12 +6,13 @@ import markdown
 _playwright: Playwright = sync_playwright().start()
 _browser = _playwright.chromium.launch()
 _context = _browser.new_context(viewport={'width': 800, 'height': 1})
+_page = _context.new_page()
 
 def html2image(html: str, path: str, *, width: Optional[int] = None):
-    with _context.new_page() as page:
-        if width != None: page.set_viewport_size({"width": width, "height": 1})
-        page.set_content(html=html, wait_until='load')
-        page.screenshot(path=path, full_page=True)
+    _page.reload(wait_until='commit')
+    if width != None: _page.set_viewport_size({"width": width, "height": 1})
+    _page.set_content(html=html, wait_until='load')
+    _page.screenshot(path=path, full_page=True)
 
 def markdown2image(md: str, path: str, width: Optional[int] = None):
     html = markdown.markdown(md)
